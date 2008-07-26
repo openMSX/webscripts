@@ -16,14 +16,14 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`benoit`@`%` SQL SECURITY DEFINER VIEW `getro
 
 (
 	case
-		when (dump = 'goodmsx') then '<original value="true">GoodMSX</original>'
-		when (dump = 'author') 	then '<original value="true">Author</original>' else '<original value="false"/>'
+		when (dump = 'goodmsx') 	then '<original value="true">GoodMSX</original>'
+		when (dump = 'author') 		then '<original value="true">Author</original>' else '<original value="false"/>'
 	end
 ) AS Dumper,
 
 (
 	case
-		when (romtype = '0x4000') then '<start>0x4000</start>'
+		when (romtype = '0x4000') 	then '<start>0x4000</start>'
 		when (romtype = 'basic') 	then '<start>0x8000</start>'
 	end
 ) AS StartAddress,
@@ -47,7 +47,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`benoit`@`%` SQL SECURITY DEFINER VIEW `getro
 	end
 ) AS Remark,
 
-	ucase(sha1) 	AS sha1,
+	lcase(sha1) 	AS sha1,
 	company 		AS company,
 	country 		AS country,
 	gamename 		AS gamename,
